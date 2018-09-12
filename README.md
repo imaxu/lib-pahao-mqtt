@@ -9,7 +9,7 @@ pip install paho-mqtt
 
 * Python 3.5+
 * paho-mqtt 1.4
-* Python3 enve
+* Python3 venv
 
 # How it works
 
