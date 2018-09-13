@@ -141,7 +141,7 @@ class MqttAssist:
         self.__mqtt_client__.message_callback_remove(topic)
 
 
-    def connect(self,auth={},svr={}):
+    def connect(self,svr={},auth={}):
 
         """
         The connect() function connects the client to a broker. 
@@ -154,7 +154,8 @@ class MqttAssist:
             this is a dict object that is defined host,port
             example:{host="iot.xxx.com",port=1883}
         """
-        self.__mqtt_client__.username_pw_set(auth["username"],auth["password"])
+        if auth and  "username" in auth.keys() and "password" in auth.keys():
+            self.__mqtt_client__.username_pw_set(auth["username"],auth["password"])
         self.__mqtt_client__.connect(svr["host"],svr["port"],60)
 
 
